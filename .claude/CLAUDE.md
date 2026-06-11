@@ -19,7 +19,7 @@ macOS tools that are not in official taps.
 ## Conventions
 
 - Formulae point at GitHub release tarballs of sibling `GeneralD/*` repos with pinned `sha256`.
-- CLI formulae generate zsh completions via `generate_completions_from_executable` (opt-out with `--without-completions`).
+- CLI formulae generate zsh/bash/fish completions by calling the tool's `completion` subcommand via `Utils.safe_popen_read` and writing the output into the completion dirs.
 - To verify a formula locally: `brew install --build-from-source ./Formula/<name>.rb` or `brew audit --strict ./Formula/<name>.rb`.
 
 License: Apache-2.0.
