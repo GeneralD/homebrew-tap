@@ -1,9 +1,9 @@
 class Lyra < Formula
   desc "Desktop lyrics overlay and video wallpaper for macOS"
   homepage "https://github.com/GeneralD/lyra"
-  url "https://github.com/GeneralD/lyra/releases/download/v2.13.16/lyra-2.13.16-macos-arm64.tar.gz"
-  version "2.13.16"
-  sha256 "8343ab7e51213fc44d4af66a5122e21fe5dac16548aae7dc97c948564903b657"
+  url "https://github.com/GeneralD/lyra/releases/download/v2.13.17/lyra-2.13.17-macos-arm64.tar.gz"
+  version "2.13.17"
+  sha256 "2d87a6cae98fe2247a7b8fd0b4a3dfa8992ba1884f15fb1b9fbce28470a4e421"
 
   depends_on :macos
   depends_on "yt-dlp"
