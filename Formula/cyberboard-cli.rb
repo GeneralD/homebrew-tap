@@ -7,6 +7,10 @@ class CyberboardCli < Formula
   sha256 "18b59e60c3f14939f9933e65b54db67403ad8e307a6ee82e6efde70dd24e6ca2"
   license "MIT"
 
+  # macOS-only: device discovery is implemented against macOS serial nodes, and
+  # the bundled Pillow wheel below is a macOS wheel (on_arm/on_intel dispatch by
+  # CPU arch, not OS, so without this guard Linuxbrew would fetch a macOS wheel).
+  depends_on :macos
   depends_on "python@3.13"
 
   resource "pyserial" do
