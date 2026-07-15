@@ -10,4 +10,16 @@ cask "lyra-screensaver" do
   depends_on formula: "generald/tap/lyra"
 
   screen_saver "LyraScreenSaver.saver"
+
+  # The .saver ships unsigned (ad-hoc, not notarized). Homebrew quarantines the
+  # download, and macOS 26's wallpaper-agent screensaver host then silently
+  # refuses to instantiate the view -- the screen stays black. Strip the
+  # quarantine from the installed bundle so it loads. The proper long-term fix
+  # is Developer ID signing + notarization in CI.
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-dr", "com.apple.quarantine",
+                          "#{Dir.home}/Library/Screen Savers/LyraScreenSaver.saver"],
+                   must_succeed: false
+  end
 end
