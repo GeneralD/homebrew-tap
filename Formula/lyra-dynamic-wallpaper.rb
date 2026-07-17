@@ -1,9 +1,9 @@
 class LyraDynamicWallpaper < Formula
   desc "Turn lyra's video wallpapers into a macOS Dynamic Desktop (time-of-day HEIC)"
   homepage "https://github.com/GeneralD/lyra-dynamic-wallpaper"
-  url "https://github.com/GeneralD/lyra-dynamic-wallpaper/releases/download/v0.1.0/lyra-dynamic-wallpaper-0.1.0-macos-arm64.tar.gz"
-  version "0.1.0"
-  sha256 "a82935e7a1a957d975005ce257a2e8801fcd2e36f36d57f3970b006d977ad6e6"
+  url "https://github.com/GeneralD/lyra-dynamic-wallpaper/releases/download/v0.2.0/lyra-dynamic-wallpaper-0.2.0-macos-arm64.tar.gz"
+  version "0.2.0"
+  sha256 "09194bd79e1c0cb048e4b115cdde69a57fe9c64558d3980909783342191524b9"
 
   depends_on :macos
   # Companion tool: reads lyra's config and wallpaper cache (and lyra brings
