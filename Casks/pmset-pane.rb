@@ -7,7 +7,7 @@ cask "pmset-pane" do
   desc "Preference pane for common pmset power-management settings"
   homepage "https://github.com/GeneralD/pmset-pane"
 
-  depends_on macos: ">= :ventura"
+  depends_on macos: :ventura
 
   prefpane "PMSetPane.prefPane"
 end
