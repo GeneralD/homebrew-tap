@@ -10,4 +10,14 @@ cask "pmset-pane" do
   depends_on macos: :ventura
 
   prefpane "PMSetPane.prefPane"
+
+  # The initial release is ad-hoc signed while Developer ID notarization is
+  # pending. System Settings rejects quarantined preference panes, so remove
+  # the download quarantine after Homebrew has installed this known artifact.
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-dr", "com.apple.quarantine",
+                          "#{Dir.home}/Library/PreferencePanes/PMSetPane.prefPane"],
+                   must_succeed: false
+  end
 end
