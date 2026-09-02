@@ -1,6 +1,6 @@
 cask "pmset-pane" do
-  version "0.1.2"
-  sha256 "ed4ac7a3c182381bd7215c7be9745ed8cb1b8a0f3f56231476858094f354ede9"
+  version "0.1.3"
+  sha256 "c68e7531e9d1f6fbe320bb0c200f6021bc4bc7dede8144901b0808dda3cd8c6c"
 
   url "https://github.com/GeneralD/pmset-pane/releases/download/v#{version}/PMSetPane.zip"
   name "Power Management"
@@ -10,6 +10,10 @@ cask "pmset-pane" do
   depends_on macos: :ventura
 
   prefpane "PowerManagement.prefPane"
+
+  uninstall launchctl: "io.github.generald.power-management.monitor"
+
+  zap trash: "~/Library/LaunchAgents/io.github.generald.power-management.monitor.plist"
 
   # The initial release is ad-hoc signed while Developer ID notarization is
   # pending. System Settings rejects quarantined preference panes, so remove
