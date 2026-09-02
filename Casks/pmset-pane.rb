@@ -1,6 +1,6 @@
 cask "pmset-pane" do
-  version "0.1.1"
-  sha256 "757be377a861f67eb93ea410867a6bc529273c17a6670c1d93c77a3d96877b61"
+  version "0.1.2"
+  sha256 "ed4ac7a3c182381bd7215c7be9745ed8cb1b8a0f3f56231476858094f354ede9"
 
   url "https://github.com/GeneralD/pmset-pane/releases/download/v#{version}/PMSetPane.zip"
   name "Power Management"
@@ -9,7 +9,7 @@ cask "pmset-pane" do
 
   depends_on macos: :ventura
 
-  prefpane "PMSetPane.prefPane"
+  prefpane "PowerManagement.prefPane"
 
   # The initial release is ad-hoc signed while Developer ID notarization is
   # pending. System Settings rejects quarantined preference panes, so remove
@@ -17,7 +17,7 @@ cask "pmset-pane" do
   postflight do
     system_command "/usr/bin/xattr",
                    args: ["-dr", "com.apple.quarantine",
-                          "#{Dir.home}/Library/PreferencePanes/PMSetPane.prefPane"],
+                          "#{Dir.home}/Library/PreferencePanes/PowerManagement.prefPane"],
                    must_succeed: false
   end
 end
