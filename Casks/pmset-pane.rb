@@ -1,6 +1,6 @@
 cask "pmset-pane" do
-  version "0.1.6"
-  sha256 "0b76493d94ca58170e1ef9eddb00e347436ca670dfc34fba00548a98989be458"
+  version "0.1.7"
+  sha256 "d52977b56275c22b7ee64b3087b214b905610e3fdcdd8fba754f8d95768ec16c"
 
   url "https://github.com/GeneralD/pmset-pane/releases/download/v#{version}/PMSetPane.zip"
   name "Power Management"
