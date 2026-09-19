@@ -16,10 +16,17 @@ cask "lyra-screensaver" do
   # refuses to instantiate the view -- the screen stays black. Strip the
   # quarantine from the installed bundle so it loads. The proper long-term fix
   # is Developer ID signing + notarization in CI.
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine",
-                          "#{Dir.home}/Library/Screen Savers/LyraScreenSaver.saver"],
-                   must_succeed: false
+  # Homebrew leaves a symlink to the installed bundle in the staged path; the
+  # trailing slash makes xattr follow it and recurse (without it only the
+  # top-level entry is cleared). Cask steps run in a sandbox that only permits
+  # writes to writable_paths, and must_succeed: false makes a denial non-fatal,
+  # so keep both or the quarantine silently remains. Keep the bundle name in
+  # sync with the screen_saver stanza above.
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args:           ["-dr", "com.apple.quarantine", "{{staged_path}}/LyraScreenSaver.saver/"],
+        must_succeed:   false,
+        writable_paths: ["LyraScreenSaver.saver"],
+        writable_base:  :screen_saverdir
   end
 end
