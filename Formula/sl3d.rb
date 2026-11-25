@@ -1,12 +1,9 @@
 class Sl3d < Formula
   desc "3D steam locomotive that runs across your desktop"
   homepage "https://github.com/GeneralD/sl"
-  # TODO: placeholder — first GitHub Release must attach
-  # dist/sl-<version>-macos-arm64.tar.gz (see `make release` in GeneralD/sl).
   url "https://github.com/GeneralD/sl/releases/download/v#{version}/sl-#{version}-macos-arm64.tar.gz"
   version "0.1.0"
-  # TODO: sha256 placeholder — replace with the digest of the release tarball.
-  sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+  sha256 "cf8fda9b0e6219e35513cff28fa7084d6e12b3c06aed3ac21c4afcdb93e3fd39"
 
   # The binary keeps the name `sl`; the core `sl` formula owns that name.
   conflicts_with "sl"
