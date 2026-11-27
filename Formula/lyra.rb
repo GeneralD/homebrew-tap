@@ -37,6 +37,7 @@ class Lyra < Formula
   service do
     run [opt_libexec/"lyra", "daemon"]
     keep_alive true
+    process_type :interactive
     log_path var/"log/lyra.log"
     error_log_path var/"log/lyra.log"
     environment_variables PATH: "#{HOMEBREW_PREFIX}/bin:#{HOMEBREW_PREFIX}/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
