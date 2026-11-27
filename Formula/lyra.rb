@@ -50,15 +50,13 @@ class Lyra < Formula
 
       Or start manually:
         lyra start
-    EOS
-  end
 
-  def post_uninstall
-    %w[com.generald.lyra homebrew.mxcl.lyra].each do |label|
-      quiet_system "launchctl", "bootout", "gui/#{Process.uid}/#{label}"
-      plist = Pathname.new(Dir.home)/"Library/LaunchAgents/#{label}.plist"
-      plist.delete if plist.exist?
-    end
+      Before uninstalling, stop the service so launchd does not keep
+      relaunching a removed binary:
+        brew services stop lyra
+      or, if you registered it with `lyra service install`:
+        lyra service uninstall
+    EOS
   end
 
   test do
